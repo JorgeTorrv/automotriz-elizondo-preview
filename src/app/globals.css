@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/*
+  Automotriz Elizondo — Tokens de diseño.
+  Paleta extraída del logotipo oficial (public/resources/logo-automotriz-elizondo.png).
+  El rojo primario (#DF1930) fue muestreado de los píxeles del logotipo.
+*/
+:root {
+  --background: #090909;
+  --surface: #121212;
+  --surface-light: #1a1a1a;
+  --primary: #df1930;
+  --primary-hover: #e8394f;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+@theme inline {
+  /* Colores expuestos como utilidades de Tailwind (bg-*, text-*, border-*) */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-fg: var(--text-primary);
+  --color-muted: var(--text-secondary);
+  --color-border: var(--border);
+
+  /* Tipografías cargadas con next/font */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-barlow);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Compensa el header fijo al navegar por anclas internas */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Títulos con tipografía condensada de carácter firme */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), var(--font-sans), sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Estado de foco visible y accesible en toda la interfaz */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Respeta la preferencia de reducción de movimiento del usuario */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Área segura inferior (iPhone) para la barra móvil de contacto */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
