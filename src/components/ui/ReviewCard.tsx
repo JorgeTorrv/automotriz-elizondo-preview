@@ -24,13 +24,27 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-/** Tarjeta de reseña real de Google. */
+/** Tarjeta de reseña real de un cliente. */
 export function ReviewCard({ review }: { review: Review }) {
   const initial = review.name.trim().charAt(0).toUpperCase();
 
   return (
-    <figure className="flex h-full flex-col rounded-xl border border-border bg-surface p-6">
-      <div className="flex items-center gap-3">
+    <figure className="relative flex h-full flex-col rounded-xl border border-border bg-surface p-6">
+      {/* Comilla de acento */}
+      <span
+        aria-hidden="true"
+        className="font-heading absolute right-5 top-2 text-6xl leading-none text-primary/15"
+      >
+        &rdquo;
+      </span>
+
+      <Stars rating={review.rating} />
+
+      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-fg/90">
+        {review.text}
+      </blockquote>
+
+      <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
         <span
           aria-hidden="true"
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-light text-sm font-bold text-primary"
@@ -46,16 +60,6 @@ export function ReviewCard({ review }: { review: Review }) {
           )}
         </div>
       </div>
-
-      <Stars rating={review.rating} />
-      <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-        “{review.text}”
-      </blockquote>
-
-      <span className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-border px-2.5 py-1 text-xs text-muted">
-        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
-        Reseña en Google
-      </span>
     </figure>
   );
 }

@@ -23,7 +23,7 @@ export function AboutSection() {
         {/* Texto */}
         <Reveal className="order-1 lg:order-2">
           <SectionHeading
-            eyebrow={`Desde ${business.foundingYear}`}
+            eyebrow="El taller"
             title="Mantenimiento para conservar tu vehículo en buenas condiciones"
           />
           <p className="mt-5 text-base leading-relaxed text-muted">
@@ -58,7 +58,7 @@ export function AboutSection() {
                   />
                 ))}
               </span>
-              {business.rating.count} reseñas en Google
+              {business.rating.count} opiniones de clientes
             </span>
           </div>
         </Reveal>
