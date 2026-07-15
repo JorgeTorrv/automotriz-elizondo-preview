@@ -215,5 +215,10 @@ export const business: Business = {
   ],
 };
 
-/** URL absoluta pública del sitio. Cámbiala por el dominio real al desplegar. */
-export const SITE_URL = "https://automotrizelizondo.vercel.app";
+/**
+ * URL absoluta pública del sitio.
+ * En esta rama (preview-pages) apunta a la vista previa temporal de GitHub
+ * Pages. En la rama principal, cámbiala por el dominio real de Vercel.
+ */
+export const SITE_URL =
+  "https://jorgetorrv.github.io/automotriz-elizondo-preview";
