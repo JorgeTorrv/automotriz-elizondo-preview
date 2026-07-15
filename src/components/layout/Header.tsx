@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { withBasePath } from "@/lib/basePath";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -16,7 +17,7 @@ const navLinks = [
 
 const Logo = () => (
   <Image
-    src="/resources/logo-automotriz-elizondo-trim.png"
+    src={withBasePath("/resources/logo-automotriz-elizondo-trim.png")}
     alt="Automotriz Elizondo"
     width={140}
     height={50}

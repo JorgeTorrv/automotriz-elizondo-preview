@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Clock, Mail, MapPin, PhoneCall } from "lucide-react";
 import { business } from "@/data/business";
 import { getCurrentYear } from "@/lib/utils";
+import { withBasePath } from "@/lib/basePath";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 
 const navLinks = [
@@ -20,7 +21,7 @@ export function Footer() {
           {/* Marca */}
           <div className="lg:col-span-1">
             <Image
-              src="/resources/logo-automotriz-elizondo-trim.png"
+              src={withBasePath("/resources/logo-automotriz-elizondo-trim.png")}
               alt="Automotriz Elizondo"
               width={160}
               height={57}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { withBasePath } from "@/lib/basePath";
 
 interface ImagePlaceholderProps {
   /** Texto descriptivo de la fotografía que irá en este espacio. */
@@ -57,7 +58,7 @@ export function ImagePlaceholder({
 
       {/* Marca de agua del logotipo oficial */}
       <Image
-        src="/resources/logo-automotriz-elizondo.png"
+        src={withBasePath("/resources/logo-automotriz-elizondo.png")}
         alt=""
         aria-hidden="true"
         width={220}

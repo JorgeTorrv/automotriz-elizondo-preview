@@ -41,7 +41,9 @@ export const siteMetadata: Metadata = {
     description,
     images: [
       {
-        url: "/resources/og-image.jpg",
+        // URL absoluta: evita que la resolución relativa a metadataBase
+        // pierda un basePath cuando el sitio vive en una subruta (GitHub Pages).
+        url: `${SITE_URL}/resources/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: `${business.name} — taller automotriz en Tampico`,
@@ -52,7 +54,7 @@ export const siteMetadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/resources/og-image.jpg"],
+    images: [`${SITE_URL}/resources/og-image.jpg`],
   },
   robots: {
     index: true,
