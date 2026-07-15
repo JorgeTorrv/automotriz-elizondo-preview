@@ -15,7 +15,7 @@ export function HeroSection() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[90svh] items-center overflow-hidden"
+      className="relative flex min-h-dvh items-center overflow-hidden"
     >
       {/*
         FONDO DEL HERO.
