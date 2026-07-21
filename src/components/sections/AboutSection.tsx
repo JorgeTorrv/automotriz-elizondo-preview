@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
 import { business } from "@/data/business";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { WorkshopImage } from "@/components/ui/WorkshopImage";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function AboutSection() {
@@ -10,12 +10,11 @@ export function AboutSection() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
         {/* Imagen */}
         <Reveal className="order-2 lg:order-1">
-          {/*
-            TODO(foto real): sustituir por una fotografía del área de trabajo o
-            del taller. Colocar en public/images/workshop/ y usar <Image .../>.
-          */}
-          <ImagePlaceholder
-            label="Área de trabajo del taller"
+          <WorkshopImage
+            src="/images/workshop/taller-area-trabajo.jpg"
+            alt="Área de trabajo del taller Automotriz Elizondo"
+            fallback="placeholder"
+            placeholderLabel="Área de trabajo del taller"
             className="aspect-[4/3] w-full"
           />
         </Reveal>

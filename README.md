@@ -156,40 +156,28 @@ desplegar.
 
 ## Cómo agregar las fotografías del taller
 
-Actualmente el sitio usa respaldos visuales branded (marca de agua del logotipo
-sobre un fondo abstracto) en los espacios de fotografía. Para colocar las fotos
-reales:
+El sitio ya está listo para las fotos reales: mientras el archivo no exista, se
+muestra un respaldo visual branded (marca de agua del logotipo sobre un fondo
+abstracto), nunca un ícono de imagen rota. En cuanto guardes la foto **con el
+nombre exacto** en `public/images/workshop/`, aparece sola — no hay que tocar
+código.
 
-1. Descarga las fotos del **perfil oficial de Facebook** del negocio
-   (no enlaces directos ni hotlinking).
-2. Optimízalas y conviértelas a **WebP** con nombres descriptivos, por ejemplo:
-   ```
-   public/images/workshop/fachada-automotriz-elizondo.webp
-   public/images/workshop/area-de-servicio.webp
-   public/images/workshop/mantenimiento-vehiculo.webp
-   public/images/workshop/equipo-de-diagnostico.webp
-   ```
-3. Sustituye el componente `<ImagePlaceholder />` por `<Image />` de
-   `next/image` en:
-   - `src/components/sections/HeroSection.tsx`
-   - `src/components/sections/AboutSection.tsx`
-   - `src/components/sections/GallerySection.tsx`
+Formatos aceptados: `.jpg`, `.webp` o `.png` (usa la misma extensión en el
+nombre de archivo). Recomendado: fotos horizontales bien iluminadas, sin
+matrículas visibles.
 
-   Ejemplo dentro de un contenedor con proporción definida:
-   ```tsx
-   <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
-     <Image
-       src="/images/workshop/fachada-automotriz-elizondo.webp"
-       alt="Fachada del taller Automotriz Elizondo en Tampico"
-       fill
-       className="object-cover"
-       sizes="(max-width: 1024px) 100vw, 50vw"
-     />
-   </div>
-   ```
+| Archivo esperado (en `public/images/workshop/`) | Dónde aparece |
+| --- | --- |
+| `hero-fachada.jpg` | Fondo a pantalla completa del hero (portada). Opcional — si no existe, se queda la composición gráfica actual tal cual. |
+| `taller-area-trabajo.jpg` | Sección "El taller" (imagen junto al texto de presentación). |
+| `galeria-fachada.jpg` | Galería — pieza grande (fachada del taller). |
+| `galeria-area-servicio.jpg` | Galería — área de servicio. |
+| `galeria-equipo-diagnostico.jpg` | Galería — equipo de diagnóstico. |
+| `galeria-vehiculo-mantenimiento.jpg` | Galería — vehículo en mantenimiento. |
+| `galeria-herramienta-equipo.jpg` | Galería — herramienta y equipo. |
 
-Cada sección incluye un comentario `TODO(foto real)` señalando exactamente dónde
-hacer el cambio. Usa siempre un `alt` descriptivo y evita mostrar matrículas.
+Descarga las fotos del **perfil oficial de Facebook** del negocio (no enlaces
+directos ni hotlinking), guárdalas con el nombre de la tabla, y listo.
 
 ---
 

@@ -2,6 +2,7 @@ import { PhoneCall } from "lucide-react";
 import { business } from "@/data/business";
 import { ContactButton } from "@/components/ui/ContactButton";
 import { Reveal } from "@/components/ui/Reveal";
+import { WorkshopImage } from "@/components/ui/WorkshopImage";
 
 const serviceHighlights = [
   "Cambio de aceite",
@@ -18,18 +19,21 @@ export function HeroSection() {
       className="relative flex min-h-dvh items-center overflow-hidden"
     >
       {/*
-        FONDO DEL HERO.
-        TODO(foto real): cuando exista una fotografía de la fachada o del taller,
-        colócala aquí a pantalla completa y conserva la capa oscura de legibilidad:
-          <Image src="/images/workshop/fachada-automotriz-elizondo.webp" alt=""
-                 fill priority className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background
-               via-background/90 to-background/40" />
-        Mientras tanto se usa una composición de marca (sin fotografía de stock).
+        FONDO DEL HERO. Si existe public/images/workshop/hero-fachada.jpg se
+        muestra a pantalla completa detrás de la composición de marca; si no
+        existe, esta capa no renderiza nada y queda la composición gráfica
+        exactamente como está hoy.
       */}
       <div aria-hidden="true" className="absolute inset-0">
+        <WorkshopImage
+          src="/images/workshop/hero-fachada.jpg"
+          alt=""
+          fallback="none"
+          priority
+          className="absolute inset-0 h-full w-full rounded-none"
+        />
         {/* Base oscura */}
-        <div className="absolute inset-0 bg-background" />
+        <div className="absolute inset-0 bg-background/80" />
         {/* Bloque rojo diagonal que sangra por el borde derecho (industrial) */}
         <div
           className="absolute inset-y-0 -right-40 w-[70%] bg-primary/90"

@@ -1,12 +1,13 @@
 import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { withBasePath } from "@/lib/basePath";
 
 interface ImagePlaceholderProps {
   /** Texto descriptivo de la fotografía que irá en este espacio. */
   label: string;
-  icon?: LucideIcon;
+  /** Ícono ya renderizado, ej. `<Wrench className="h-3.5 w-3.5 text-primary" aria-hidden="true" />`. */
+  icon?: ReactNode;
   className?: string;
   priority?: boolean;
 }
@@ -23,7 +24,7 @@ interface ImagePlaceholderProps {
  */
 export function ImagePlaceholder({
   label,
-  icon: Icon,
+  icon,
   className,
   priority = false,
 }: ImagePlaceholderProps) {
@@ -67,9 +68,9 @@ export function ImagePlaceholder({
         className="pointer-events-none w-1/2 max-w-[220px] opacity-20"
       />
 
-      {Icon && (
+      {icon && (
         <span className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-md bg-background/60 px-2 py-1 text-xs text-muted backdrop-blur-sm">
-          <Icon className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+          {icon}
           {label}
         </span>
       )}
