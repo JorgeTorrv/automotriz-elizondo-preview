@@ -1,11 +1,17 @@
 import type { NextConfig } from "next";
 
-// Configuración exclusiva de esta rama: exportación estática para la vista
-// previa temporal en GitHub Pages. La rama principal (para el despliegue
-// definitivo en Vercel) no usa basePath ni output:"export".
+// Exportación estática usada por las dos vistas previa gratuitas (GitHub
+// Pages y Cloudflare Pages). La rama principal (para el despliegue
+// definitivo en Vercel con dominio propio) no usa basePath ni output:"export".
+//
+// GitHub Pages sirve el sitio bajo /<repo>/, así que necesita basePath.
+// Cloudflare Pages sirve cada proyecto en la raíz de su propio subdominio
+// (*.pages.dev), así que ahí basePath debe quedar vacío. El workflow de
+// GitHub Actions de la vista previa en GitHub Pages es el único que define
+// GITHUB_PAGES="true" al hacer el build.
 const repoName = "automotriz-elizondo-preview";
-
-const basePath = `/${repoName}`;
+const isGithubPagesPreview = process.env.GITHUB_PAGES === "true";
+const basePath = isGithubPagesPreview ? `/${repoName}` : "";
 
 const nextConfig: NextConfig = {
   output: "export",
